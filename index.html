@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MLZS SONGADH STAFF INFORMATION DETAILS FORM</title>
+<title>MLZS SONGADH | Staff Information Portal</title>
 
 <link rel="icon" type="image/png" href="mlzs.png">
 
@@ -14,14 +14,13 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
 body{
 background:
-linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-url('school.png') no-repeat center center fixed;
-background-size:cover;
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+url('school.png') center center/cover no-repeat fixed;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -30,152 +29,170 @@ padding:20px;
 }
 
 .box{
-width:460px;
-background:rgba(255,255,255,0.25);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,0.35);
-border-radius:22px;
+width:520px;
+max-width:100%;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.25);
+border-radius:25px;
 padding:30px;
 text-align:center;
-box-shadow:0 8px 32px rgba(0,0,0,0.35);
+box-shadow:
+0 15px 40px rgba(0,0,0,0.35),
+0 0 20px rgba(255,255,255,0.08);
 }
 
 .logo{
-width:140px;
-margin-bottom:10px;
+width:145px;
+margin-bottom:12px;
 }
 
 .portal-badge{
-background:rgba(0,51,102,0.15);
-padding:8px;
-border-radius:8px;
-margin-bottom:10px;
-color:#003366;
-font-weight:bold;
+background:rgba(255,255,255,0.22);
+padding:10px;
+border-radius:10px;
+margin-bottom:12px;
 font-size:15px;
+font-weight:700;
+color:#003366;
 }
 
 .tagline{
+font-size:22px;
+font-weight:800;
 color:#FFD700;
-font-size:18px;
-font-weight:bold;
-margin-bottom:10px;
-text-shadow:1px 1px 3px #000;
+margin-bottom:12px;
+text-shadow:2px 2px 4px rgba(0,0,0,0.6);
 }
 
 .session{
-background:rgba(255,255,255,0.35);
-padding:8px;
-border-radius:8px;
-margin-bottom:12px;
+background:rgba(255,255,255,0.25);
+padding:10px;
+border-radius:10px;
+margin-bottom:15px;
+font-weight:700;
 color:#003366;
-font-weight:bold;
 }
 
 h2{
+font-size:36px;
+font-weight:900;
 color:#003366;
-font-size:32px;
-font-weight:bold;
-margin-bottom:5px;
+letter-spacing:1px;
+margin-bottom:6px;
 text-shadow:1px 1px 3px rgba(255,255,255,0.4);
 }
 
 h3{
+font-size:22px;
+font-weight:700;
 color:#003366;
-font-size:20px;
-font-weight:bold;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 #datetime{
-color:#003366;
 font-size:22px;
-font-weight:bold;
-margin-bottom:15px;
+font-weight:700;
+color:#003366;
+margin-bottom:18px;
 }
 
 .note-box{
-background:rgba(255,243,205,0.95);
+background:#fff6d9;
+padding:15px;
+border-radius:12px;
+border-left:5px solid #ffb300;
+margin-bottom:18px;
+}
+
+.note-title{
+font-weight:800;
+font-size:16px;
 color:#000;
-padding:12px;
-border-radius:10px;
-margin-bottom:15px;
-font-size:14px;
-font-weight:bold;
+margin-bottom:8px;
+}
+
+.scroll-text{
+font-size:13px;
+font-weight:600;
+line-height:1.6;
+color:#222;
 }
 
 .notice{
+font-size:20px;
+font-weight:800;
 color:#FFD700;
-font-size:18px;
-font-weight:bold;
-margin-bottom:15px;
-text-shadow:1px 1px 3px #000;
+text-shadow:2px 2px 4px rgba(0,0,0,0.8);
+margin-bottom:18px;
 }
 
 .label{
-color:white;
-font-size:18px;
-font-weight:bold;
 display:block;
+font-size:19px;
+font-weight:700;
+color:#ffffff;
 margin-bottom:10px;
 }
 
-input[type=password]{
+input[type=password],
+input[type=text]{
 width:100%;
-padding:12px;
-border:none;
-border-radius:8px;
+padding:14px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.4);
 font-size:16px;
-margin-bottom:10px;
+outline:none;
+background:rgba(255,255,255,0.95);
+transition:0.3s;
+}
+
+input[type=password]:focus,
+input[type=text]:focus{
+border-color:#0059b3;
+box-shadow:0 0 12px rgba(0,89,179,0.25);
 }
 
 .show-pass{
-color:white;
-font-size:14px;
 display:block;
 text-align:left;
-margin-bottom:15px;
+color:#ffffff;
+font-size:14px;
+margin:12px 0 18px;
 }
 
 button{
 width:100%;
-padding:14px;
-background:linear-gradient(45deg,#003366,#0066cc);
-color:white;
+padding:15px;
+background:linear-gradient(135deg,#003366,#0066cc);
+color:#ffffff;
 font-size:18px;
-font-weight:bold;
+font-weight:800;
 border:none;
 border-radius:12px;
 cursor:pointer;
-transition:0.4s;
-animation:pulse 2s infinite;
+transition:all 0.3s ease;
 }
 
 button:hover{
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.02);}
-100%{transform:scale(1);}
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,51,102,0.35);
 }
 
 .footer{
-margin-top:15px;
-padding-top:10px;
-border-top:1px solid rgba(255,255,255,0.3);
-font-size:12px;
-color:white;
-line-height:1.6;
+margin-top:20px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.25);
+font-size:13px;
+line-height:1.8;
+color:#ffffff;
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
 
 .box{
-width:100%;
-padding:20px;
+padding:22px;
 }
 
 .logo{
@@ -183,7 +200,7 @@ width:120px;
 }
 
 h2{
-font-size:24px;
+font-size:28px;
 }
 
 h3{
@@ -192,6 +209,10 @@ font-size:18px;
 
 #datetime{
 font-size:18px;
+}
+
+.notice{
+font-size:16px;
 }
 
 }
@@ -219,25 +240,28 @@ font-size:18px;
 
 <h2>MLZS SONGADH</h2>
 
-<h3>STAFF INFORMATION DETAILS</h3>
+<h3>STAFF INFORMATION PORTAL</h3>
 
 <div id="datetime"></div>
 
 <div class="note-box">
-📌 IMPORTANT NOTE
 
-<marquee scrollamount="4">
-All supporting documents must be uploaded in JPG Image Format • Aadhaar Card • PAN Card • Bank Passbook • Highest Qualification Certificate • Recent Passport Size Photograph • Signature in Blue Pen on White Paper
-</marquee>
+<div class="note-title">
+📌 IMPORTANT INSTRUCTIONS
+</div>
+
+<div class="scroll-text">
+All supporting documents must be uploaded in JPG Image Format. Required Documents: Aadhaar Card • PAN Card • Bank Passbook • Highest Qualification Certificate • Recent Passport Size Photograph • Signature in Blue Pen on White Paper.
+</div>
 
 </div>
 
 <div class="notice">
-⚠️ PLEASE FILL UP THE STAFF INFORMATION FORM WITHIN 2 DAYS
+⚠️ Kindly Complete the Staff Information Form Within 2 Days
 </div>
 
 <label class="label">
-Enter Access Password
+Enter Secure Access Password
 </label>
 
 <input type="password" id="pass" placeholder="Enter Access Password">
@@ -246,13 +270,15 @@ Enter Access Password
 <input type="checkbox" onclick="togglePassword()"> Show Password
 </label>
 
-<button onclick="check()">🔓 ACCESS STAFF FORM</button>
+<button onclick="check()">
+🔓 ACCESS STAFF FORM
+</button>
 
 <div class="footer">
 © 2026 Mount Litera Zee School, Songadh<br>
-Authorized Staff Information Portal<br>
+Secure Staff Information Management Portal<br>
 Academic Session 2026–27<br>
-Managed By: Suraj R. Maurya
+Managed & Developed By: Suraj R. Maurya
 </div>
 
 </div>
@@ -260,29 +286,62 @@ Managed By: Suraj R. Maurya
 <script>
 
 function check(){
+
 var p=document.getElementById("pass").value;
 
 if(p==="MLZS@2026"){
+
 window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeYm7F2ro3z3eQMBAPNCB1-HQAGtym4aw5OJditvyuC7lGS-A/viewform?usp=publish-editor";
+
 }else{
-alert("Wrong Password");
+
+alert("Invalid Access Password.\nPlease Contact School Administration.");
+
 }
+
 }
 
 function togglePassword(){
+
 var x=document.getElementById("pass");
-x.type = (x.type==="password") ? "text" : "password";
+
+if(x.type==="password"){
+x.type="text";
+}else{
+x.type="password";
+}
+
 }
 
 document.getElementById("pass").addEventListener("keypress",function(event){
+
 if(event.key==="Enter"){
 check();
 }
+
 });
 
 function updateDateTime(){
+
+const now = new Date();
+
+let day = String(now.getDate()).padStart(2,'0');
+let month = String(now.getMonth()+1).padStart(2,'0');
+let year = now.getFullYear();
+
+let hours = now.getHours();
+let ampm = hours >= 12 ? 'PM' : 'AM';
+
+hours = hours % 12;
+hours = hours ? hours : 12;
+
+let minutes = String(now.getMinutes()).padStart(2,'0');
+let seconds = String(now.getSeconds()).padStart(2,'0');
+
 document.getElementById("datetime").innerHTML =
-"📅 " + new Date().toLocaleString();
+"📅 " + day + "/" + month + "/" + year +
+", " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+
 }
 
 setInterval(updateDateTime,1000);
