@@ -54,16 +54,63 @@ color:#fff;font-size:18px;font-weight:800;cursor:pointer
 }
 button:hover{transform:translateY(-2px)}
 .footer{margin-top:20px;color:#fff;font-size:13px;line-height:1.8}
+
 .modal{
-display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);
-justify-content:center;align-items:center;padding:20px;
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.82);
+justify-content:center;align-items:center;
+padding:20px;z-index:9999;
+backdrop-filter:blur(6px);
 }
 .modal-content{
-background:#fff;max-width:550px;width:100%;padding:25px;border-radius:20px;
+background:#fff;
+max-width:600px;width:100%;
+padding:30px;
+border-radius:25px;
+position:relative;
+overflow:hidden;
+animation:zoomIn .5s ease;
+box-shadow:0 0 40px rgba(0,153,255,.45);
+}
+.modal-content:before{
+content:'';
+position:absolute;
+top:0;left:0;
+width:100%;height:6px;
+background:linear-gradient(90deg,#0047ff,#00e5ff,#00ff88);
+background-size:300% 100%;
+animation:move 4s linear infinite;
 }
 .modal-content h2{background:none;-webkit-text-fill-color:#003366}
 .modal-content ul{text-align:left;line-height:2;margin:15px 0 20px 20px}
-.warning{background:#fff3cd;padding:12px;border-radius:10px;margin-bottom:15px}
+.warning{
+background:#fff3cd;
+padding:12px;
+border-radius:12px;
+margin-bottom:15px;
+font-weight:bold;
+animation:pulse 1.5s infinite;
+}
+@keyframes zoomIn{
+0%{opacity:0;transform:scale(.6) rotate(-5deg)}
+100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes move{
+0%{background-position:0%}
+100%{background-position:100%}
+}
+@keyframes pulse{
+0%{box-shadow:0 0 0 rgba(255,193,7,.6)}
+50%{box-shadow:0 0 25px rgba(255,193,7,.8)}
+100%{box-shadow:0 0 0 rgba(255,193,7,.6)}
+}
+.proceed-btn{
+animation:float 2s infinite ease-in-out;
+}
+@keyframes float{
+50%{transform:translateY(-4px)}
+}
+
 </style>
 </head>
 <body>
@@ -108,7 +155,7 @@ Managed & Developed By: Suraj R. Maurya
 
 <div id="instructionModal" class="modal">
 <div class="modal-content">
-<h2>📋 Staff Form Instructions</h2>
+<h2>🎉 Welcome To Staff Portal</h2>
 <p>Please keep the following documents ready before proceeding:</p>
 <ul>
 <li>✅ Aadhaar Card</li>
@@ -121,7 +168,7 @@ Managed & Developed By: Suraj R. Maurya
 <div class="warning">
 ⚠️ All supporting documents must be uploaded in JPG format only.
 </div>
-<button onclick="proceedForm()">🚀 Proceed To Staff Form</button>
+<button class="proceed-btn" onclick="proceedForm()">🚀 PROCEED TO STAFF FORM</button>
 </div>
 </div>
 
