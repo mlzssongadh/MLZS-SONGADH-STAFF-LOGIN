@@ -1,24 +1,14 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="mlzs.png">
-<title>MLZS SONGADH STAFF INFOMATION DETAILS FORM </title>
-  <div id="datetime" style="font-size:14px;color:#333;margin-bottom:10px;"></div>
+<link rel="icon" type="image/png" href="mlzs.png">
+
+<title>MLZS SONGADH STAFF INFORMATION DETAILS FORM</title>
 
 <style>
-h2{
-color:#003366;
-font-size:28px;
-margin-bottom:5px;
-}
 
-h3{
-color:#cc0000;
-font-size:18px;
-margin-top:0;
-margin-bottom:15px;
-}
 body{
 margin:0;
 font-family:Arial, sans-serif;
@@ -29,34 +19,51 @@ justify-content:center;
 align-items:center;
 height:100vh;
 }
+
 .box{
-
 background:rgba(255,255,255,0.15);
-
 backdrop-filter:blur(10px);
 -webkit-backdrop-filter:blur(10px);
-
 padding:35px;
-
 border-radius:20px;
-
 border:1px solid rgba(255,255,255,0.3);
-
 box-shadow:0 8px 32px rgba(0,0,0,0.3);
-
 width:420px;
-
 text-align:center;
+}
 
+h2{
+color:white;
+font-size:30px;
+margin-bottom:5px;
+text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h3{
+color:#FFD700;
+font-size:20px;
+margin-top:0;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+#datetime{
+font-size:14px;
+color:white;
+font-weight:bold;
+text-align:center;
+margin-bottom:10px;
 }
 
 input{
-
 width:100%;
-padding:10px;
+padding:12px;
 margin-top:10px;
 margin-bottom:15px;
-
+border:none;
+border-radius:8px;
+font-size:16px;
+box-sizing:border-box;
 }
 
 button{
@@ -75,6 +82,20 @@ button:hover{
 background:#0055aa;
 }
 
+.note-box{
+background:rgba(255,243,205,0.95);
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+color:#000;
+font-size:14px;
+}
+
+.footer{
+font-size:12px;
+color:white;
+}
+
 @media(max-width:500px){
 
 .box{
@@ -83,67 +104,67 @@ padding:25px;
 }
 
 img{
-width:150px !important;
+width:130px !important;
+}
+
+h2{
+font-size:24px;
+}
+
+h3{
+font-size:16px;
+}
+
+button{
+font-size:16px;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="box">
-<img src="mlzs.png" alt="MLZS Logo" style="display:block; margin:0 auto 15px auto; width:200px;">
+
+<img src="mlzs.png" alt="MLZS Logo" style="display:block;margin:0 auto 10px auto;width:150px;">
+
 <h2>MLZS SONGADH</h2>
+
 <h3>STAFF INFORMATION DETAILS</h3>
-<style>
- h2{
-color:#003366;
-font-size:30px;
-margin-bottom:5px;
-text-shadow:2px 2px 4px rgba(0,0,0,0.2);
-}
 
-h3{
-color:#cc0000;
-font-size:18px;
-margin-top:0;
-margin-bottom:15px;
-}
-.blink{
-color:blue;
-font-size:20px;
-font-weight:bold;
-text-align:center;
-animation: blink 1s infinite;
-margin:10px 0;
-}
+<div id="datetime"></div>
 
-@keyframes blink{
-50%{
-opacity:0;
-}
-}
-</style>
-<div style="background:#fff3cd;padding:10px;border-radius:8px;margin-bottom:10px;font-size:14px;">
-📄 Keep Ready:
-<br>✅ Aadhaar Card
-<br>✅ PAN Card
-<br>✅ Bank Passbook
-<br>✅ Qualification Certificates
-</div>
-<marquee behavior="alternate" style="color:#cc0000;font-size:18px;font-weight:bold;">
-⚠️ PLEASE FILL UP THE STAFF INFORMATION FORM WITHIN 2 DAYS.
+<div class="note-box">
+
+📌 <b>NOTE:</b>
+
+<marquee scrollamount="5">
+
+All supporting documents must be uploaded in JPG Image Format. Please keep ready: ✅ Aadhaar Card • ✅ PAN Card • ✅ Bank Passbook • ✅ Highest Qualification Certificate • ✅ Recent Passport Size Photograph • ✅ Signature in Blue Pen on White Paper.
+
 </marquee>
-<p>Enter Access Password</p>
+
+</div>
+
+<marquee behavior="alternate" style="color:#FFD700;font-size:18px;font-weight:bold;">
+
+⚠️ PLEASE FILL UP THE STAFF INFORMATION FORM WITHIN 2 DAYS.
+
+</marquee>
+
+<p style="color:white;font-size:18px;">
+Enter Access Password
+</p>
 
 <input type="password" id="pass" placeholder="Enter Access Password">
 
-<button onclick="check()">🔓 Access Staff Form</button>
+<button onclick="check()">🔓 ACCESS STAFF FORM</button>
 
 <hr>
 
-<p style="font-size:12px;color:#666;">
+<p class="footer">
 © 2026 Mount Litera Zee School, Songadh<br>
 Authorized Staff Portal<br>
 Managed By: Suraj R. Maurya
@@ -156,14 +177,12 @@ Managed By: Suraj R. Maurya
 function check(){
 
 var p=document.getElementById("pass").value;
-  
+
 if(p=="MLZS@2026"){
 
 window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeYm7F2ro3z3eQMBAPNCB1-HQAGtym4aw5OJditvyuC7lGS-A/viewform?usp=publish-editor";
 
-}
-
-else{
+}else{
 
 alert("Wrong Password");
 
@@ -171,19 +190,26 @@ alert("Wrong Password");
 
 }
 
-document.getElementById("pass").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        check();
-    }
+document.getElementById("pass").addEventListener("keypress", function(event){
+
+if(event.key==="Enter"){
+check();
+}
+
 });
+
 function updateDateTime(){
+
 document.getElementById("datetime").innerHTML =
 "📅 " + new Date().toLocaleString();
+
 }
+
 setInterval(updateDateTime,1000);
 updateDateTime();
+
 </script>
 
 </body>
-
 </html>
+```
