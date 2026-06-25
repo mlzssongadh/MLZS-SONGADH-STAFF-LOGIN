@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MLZS SONGADH STAFF INFORMATION DETAILS FORM</title>
 
 <link rel="icon" type="image/png" href="mlzs.png">
@@ -31,12 +30,12 @@ padding:20px;
 }
 
 .box{
-width:450px;
+width:460px;
 background:rgba(255,255,255,0.25);
-backdrop-filter:blur(12px);
--webkit-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.30);
-border-radius:20px;
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.35);
+border-radius:22px;
 padding:30px;
 text-align:center;
 box-shadow:0 8px 32px rgba(0,0,0,0.35);
@@ -47,12 +46,39 @@ width:140px;
 margin-bottom:10px;
 }
 
+.portal-badge{
+background:rgba(0,51,102,0.15);
+padding:8px;
+border-radius:8px;
+margin-bottom:10px;
+color:#003366;
+font-weight:bold;
+font-size:15px;
+}
+
+.tagline{
+color:#FFD700;
+font-size:18px;
+font-weight:bold;
+margin-bottom:10px;
+text-shadow:1px 1px 3px #000;
+}
+
+.session{
+background:rgba(255,255,255,0.35);
+padding:8px;
+border-radius:8px;
+margin-bottom:12px;
+color:#003366;
+font-weight:bold;
+}
+
 h2{
 color:#003366;
 font-size:32px;
 font-weight:bold;
-text-shadow:1px 1px 3px rgba(255,255,255,0.4);
 margin-bottom:5px;
+text-shadow:1px 1px 3px rgba(255,255,255,0.4);
 }
 
 h3{
@@ -64,9 +90,8 @@ margin-bottom:10px;
 
 #datetime{
 color:#003366;
-font-size:20px;
+font-size:22px;
 font-weight:bold;
-text-align:center;
 margin-bottom:15px;
 }
 
@@ -115,20 +140,26 @@ margin-bottom:15px;
 
 button{
 width:100%;
-padding:13px;
+padding:14px;
 background:linear-gradient(45deg,#003366,#0066cc);
 color:white;
 font-size:18px;
 font-weight:bold;
 border:none;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
-transition:0.3s;
+transition:0.4s;
+animation:pulse 2s infinite;
 }
 
 button:hover{
-transform:translateY(-2px);
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
 }
 
 .footer{
@@ -160,7 +191,7 @@ font-size:18px;
 }
 
 #datetime{
-font-size:16px;
+font-size:18px;
 }
 
 }
@@ -174,6 +205,18 @@ font-size:16px;
 
 <img src="mlzs.png" class="logo" alt="MLZS Logo">
 
+<div class="portal-badge">
+🔒 Secure Staff Access Portal
+</div>
+
+<div class="tagline">
+🌟 Excellence Through Education 🌟
+</div>
+
+<div class="session">
+🎓 Academic Session 2026–27
+</div>
+
 <h2>MLZS SONGADH</h2>
 
 <h3>STAFF INFORMATION DETAILS</h3>
@@ -181,21 +224,16 @@ font-size:16px;
 <div id="datetime"></div>
 
 <div class="note-box">
-
 📌 IMPORTANT NOTE
 
 <marquee scrollamount="4">
-
 All supporting documents must be uploaded in JPG Image Format • Aadhaar Card • PAN Card • Bank Passbook • Highest Qualification Certificate • Recent Passport Size Photograph • Signature in Blue Pen on White Paper
-
 </marquee>
 
 </div>
 
 <div class="notice">
-
 ⚠️ PLEASE FILL UP THE STAFF INFORMATION FORM WITHIN 2 DAYS
-
 </div>
 
 <label class="label">
@@ -212,7 +250,8 @@ Enter Access Password
 
 <div class="footer">
 © 2026 Mount Litera Zee School, Songadh<br>
-Authorized Staff Portal<br>
+Authorized Staff Information Portal<br>
+Academic Session 2026–27<br>
 Managed By: Suraj R. Maurya
 </div>
 
@@ -221,46 +260,29 @@ Managed By: Suraj R. Maurya
 <script>
 
 function check(){
-
 var p=document.getElementById("pass").value;
 
 if(p==="MLZS@2026"){
-
 window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeYm7F2ro3z3eQMBAPNCB1-HQAGtym4aw5OJditvyuC7lGS-A/viewform?usp=publish-editor";
-
 }else{
-
 alert("Wrong Password");
-
 }
-
 }
 
 function togglePassword(){
-
 var x=document.getElementById("pass");
-
-if(x.type==="password"){
-x.type="text";
-}else{
-x.type="password";
-}
-
+x.type = (x.type==="password") ? "text" : "password";
 }
 
 document.getElementById("pass").addEventListener("keypress",function(event){
-
 if(event.key==="Enter"){
 check();
 }
-
 });
 
 function updateDateTime(){
-
 document.getElementById("datetime").innerHTML =
 "📅 " + new Date().toLocaleString();
-
 }
 
 setInterval(updateDateTime,1000);
