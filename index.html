@@ -1,206 +1,288 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MLZS SONGADH | Staff Information Portal</title>
-<link rel="icon" type="image/png" href="mlzs.png">
+<title>MLZS SONGADH Premium Portal</title>
+<link rel="icon" href="mlzs.png">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
 body{
 background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('school.png') center/cover fixed;
-display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
+
+.loader{
+position:fixed;
+inset:0;
+background:#001f3f;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:#fff;
+z-index:99999;
+animation:hideLoader 4s forwards;
+}
+.loader img{width:180px;margin-bottom:20px;animation:pulse 2s infinite;}
+.loader h2{color:#fff}
+@keyframes hideLoader{
+0%,85%{opacity:1;visibility:visible}
+100%{opacity:0;visibility:hidden}
+}
+@keyframes pulse{
+50%{transform:scale(1.08)}
+}
+
 .box{
-width:560px;max-width:100%;
-background:rgba(255,255,255,.16);
+width:580px;
+max-width:92%;
+background:rgba(255,255,255,.15);
 backdrop-filter:blur(18px);
-border-radius:25px;
 padding:30px;
+border-radius:25px;
 text-align:center;
-border:1px solid rgba(255,255,255,.25);
-box-shadow:0 15px 40px rgba(0,0,0,.35);
-animation:fade .8s ease;
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+border:1px solid rgba(255,255,255,.2);
 }
-@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.logo{width:240px;filter:drop-shadow(0 0 10px rgba(255,255,255,.5));}
-.portal-badge,.session{
-background:rgba(255,255,255,.22);
-padding:10px;border-radius:10px;margin:10px 0;font-weight:700;
-}
-.portal-badge{color:#ffe600}
-.tagline{color:#fff;font-weight:600;margin:10px 0}
+
+.logo{width:250px}
 h2{
-font-size:42px;font-weight:900;
-background:linear-gradient(90deg,#4da3ff,#00e5ff);
+font-size:42px;
+background:linear-gradient(90deg,#ffd700,#00e5ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-h3{color:#ffe600;margin:10px 0 15px}
-#datetime{color:#fff;font-size:20px;font-weight:700;margin-bottom:15px}
-.note-box{
-background:#fff6d9;padding:12px;border-radius:12px;border-left:5px solid orange;margin-bottom:15px
+
+.notice{
+color:#ffd700;
+font-size:20px;
+font-weight:bold;
+margin:15px 0;
 }
-.notice{color:#ffe600;font-size:20px;font-weight:800;margin:15px 0}
-.label{display:block;color:#fff;font-size:18px;font-weight:700;margin-bottom:10px}
-input[type=password],input[type=text]{
-width:100%;padding:14px;border-radius:10px;border:none;font-size:16px
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:16px;
 }
-.show-pass{display:block;text-align:left;color:#fff;margin:10px 0 15px}
+
 button{
-width:100%;padding:15px;border:none;border-radius:12px;
+width:100%;
+padding:15px;
+margin-top:10px;
+border:none;
+border-radius:12px;
 background:linear-gradient(135deg,#003366,#0066cc);
-color:#fff;font-size:18px;font-weight:800;cursor:pointer
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
 }
-button:hover{transform:translateY(-2px)}
-.footer{margin-top:20px;color:#fff;font-size:13px;line-height:1.8}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 25px rgba(0,153,255,.5);
+}
 
 .modal{
-display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.82);
-justify-content:center;align-items:center;
-padding:20px;z-index:9999;
-backdrop-filter:blur(6px);
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+backdrop-filter:blur(8px);
 }
+
 .modal-content{
 background:#fff;
-max-width:600px;width:100%;
+width:92%;
+max-width:650px;
 padding:30px;
 border-radius:25px;
 position:relative;
 overflow:hidden;
-animation:zoomIn .5s ease;
-box-shadow:0 0 40px rgba(0,153,255,.45);
+animation:zoom .6s ease;
 }
+
 .modal-content:before{
 content:'';
 position:absolute;
-top:0;left:0;
-width:100%;height:6px;
-background:linear-gradient(90deg,#0047ff,#00e5ff,#00ff88);
+top:0;
+left:0;
+height:6px;
+width:100%;
+background:linear-gradient(90deg,#ffd700,#00e5ff,#00ff88);
 background-size:300% 100%;
-animation:move 4s linear infinite;
-}
-.modal-content h2{background:none;-webkit-text-fill-color:#003366}
-.modal-content ul{text-align:left;line-height:2;margin:15px 0 20px 20px}
-.warning{
-background:#fff3cd;
-padding:12px;
-border-radius:12px;
-margin-bottom:15px;
-font-weight:bold;
-animation:pulse 1.5s infinite;
-}
-@keyframes zoomIn{
-0%{opacity:0;transform:scale(.6) rotate(-5deg)}
-100%{opacity:1;transform:scale(1) rotate(0)}
-}
-@keyframes move{
-0%{background-position:0%}
-100%{background-position:100%}
-}
-@keyframes pulse{
-0%{box-shadow:0 0 0 rgba(255,193,7,.6)}
-50%{box-shadow:0 0 25px rgba(255,193,7,.8)}
-100%{box-shadow:0 0 0 rgba(255,193,7,.6)}
-}
-.proceed-btn{
-animation:float 2s infinite ease-in-out;
-}
-@keyframes float{
-50%{transform:translateY(-4px)}
+animation:borderMove 4s linear infinite;
 }
 
+@keyframes borderMove{
+100%{background-position:100%}
+}
+
+@keyframes zoom{
+0%{transform:scale(.6) rotate(-5deg);opacity:0}
+100%{transform:scale(1);opacity:1}
+}
+
+.progress{
+height:12px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin:15px 0;
+}
+
+.progress span{
+display:block;
+height:100%;
+width:100%;
+background:linear-gradient(90deg,#ffd700,#00e5ff);
+animation:fill 2s ease;
+}
+
+@keyframes fill{
+from{width:0}
+to{width:100%}
+}
+
+.doc-card{
+background:#f7f7f7;
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+font-weight:600;
+text-align:left;
+}
+
+.principal{
+background:#eef8ff;
+padding:15px;
+border-left:5px solid #0066cc;
+margin:15px 0;
+border-radius:10px;
+}
+
+.proceed{
+animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+50%{transform:translateY(-5px)}
+}
+
+.footer{
+margin-top:20px;
+color:white;
+font-size:13px;
+line-height:1.8;
+}
 </style>
 </head>
 <body>
 
-<div class="box">
-<img src="mlzs.png" class="logo" alt="MLZS Logo">
-
-<div class="portal-badge">🔒 Secure Staff Access Portal</div>
-<div class="tagline">🌟 Excellence Through Education 🌟</div>
-<div class="session">🎓 Academic Session 2026–27</div>
-
-<h2>MLZS SONGADH</h2>
-<h3>STAFF INFORMATION PORTAL</h3>
-
-<div id="datetime"></div>
-
-<div class="note-box">
-<b>📌 IMPORTANT INSTRUCTIONS</b><br><br>
-<marquee scrollamount="4">
-Upload JPG Format Only • Aadhaar Card • PAN Card • Bank Passbook • Qualification Certificate • Passport Photo • Signature (Blue Pen)
-</marquee>
+<div class="loader">
+<img src="mlzs.png">
+<h2>Loading Staff Portal...</h2>
 </div>
 
-<div class="notice">⚠️ Kindly Complete the Staff Information Form Within 2 Days</div>
+<div class="box">
+<img src="mlzs.png" class="logo">
+<h2>MLZS SONGADH</h2>
+<p style="color:white">STAFF INFORMATION PORTAL</p>
 
-<label class="label">Enter Secure Access Password</label>
-<input type="password" id="pass" placeholder="Enter Access Password">
+<div style="color:white;margin:15px 0" id="datetime"></div>
 
-<label class="show-pass">
-<input type="checkbox" onclick="togglePassword()"> Show Password
-</label>
+<marquee style="background:#fff6d9;padding:10px;border-radius:10px">
+📌 Upload JPG Format Only • Aadhaar Card • PAN Card • Bank Passbook • Qualification Certificate • Passport Photo • Signature
+</marquee>
 
-<button onclick="check()">🔓 ACCESS STAFF FORM</button>
+<div class="notice">
+⚠️ Complete Staff Information Form Within 2 Days
+</div>
+
+<input type="password" id="pass" placeholder="🔒 Enter Secure Access Password">
+
+<div style="text-align:left;color:white;margin:10px 0">
+<input type="checkbox" onclick="togglePassword()" style="width:auto">
+Show Password
+</div>
+
+<button onclick="check()">🚀 ACCESS STAFF FORM</button>
 
 <div class="footer">
 © 2026 Mount Litera Zee School, Songadh<br>
-Secure Staff Information Management Portal<br>
-Academic Session 2026–27<br>
-Managed & Developed By: Suraj R. Maurya
+Portal Version 4.0 Premium<br>
+Developed By: Suraj R. Maurya
 </div>
 </div>
 
-<div id="instructionModal" class="modal">
+<div class="modal" id="instructionModal">
 <div class="modal-content">
-<h2>🎉 Welcome To Staff Portal</h2>
-<p>Please keep the following documents ready before proceeding:</p>
-<ul>
-<li>✅ Aadhaar Card</li>
-<li>✅ PAN Card</li>
-<li>✅ Bank Passbook</li>
-<li>✅ Highest Qualification Certificate</li>
-<li>✅ Recent Passport Size Photograph</li>
-<li>✅ Signature (Blue Pen on White Paper)</li>
-</ul>
-<div class="warning">
-⚠️ All supporting documents must be uploaded in JPG format only.
+
+<center>
+<img src="mlzs.png" width="120">
+<h2 style="-webkit-text-fill-color:#003366">🎉 Welcome Staff Member</h2>
+</center>
+
+<div class="progress">
+<span></span>
 </div>
-<button class="proceed-btn" onclick="proceedForm()">🚀 PROCEED TO STAFF FORM</button>
+
+<div class="principal">
+<b>Message From Administration</b><br>
+Please ensure all information submitted is accurate and complete before final submission.
+</div>
+
+<div class="doc-card">🪪 Aadhaar Card</div>
+<div class="doc-card">💳 PAN Card</div>
+<div class="doc-card">🏦 Bank Passbook</div>
+<div class="doc-card">🎓 Qualification Certificate</div>
+<div class="doc-card">📸 Passport Size Photograph</div>
+<div class="doc-card">✍️ Signature (Blue Pen)</div>
+
+<button class="proceed" onclick="proceedForm()">
+🚀 PROCEED TO STAFF FORM
+</button>
+
 </div>
 </div>
 
 <script>
 function check(){
-let p=document.getElementById("pass").value;
-if(p==="MLZS@2026"){
-document.getElementById("instructionModal").style.display="flex";
+if(document.getElementById('pass').value==='MLZS@2026'){
+document.getElementById('instructionModal').style.display='flex';
 }else{
-alert("Invalid Access Password. Please Contact School Administration.");
+alert('Invalid Access Password');
 }
 }
 
 function proceedForm(){
-window.location.href="https://docs.google.com/forms/d/e/1FAIpQLSeYm7F2ro3z3eQMBAPNCB1-HQAGtym4aw5OJditvyuC7lGS-A/viewform?usp=publish-editor";
+window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSeYm7F2ro3z3eQMBAPNCB1-HQAGtym4aw5OJditvyuC7lGS-A/viewform?usp=publish-editor';
 }
 
 function togglePassword(){
-let x=document.getElementById("pass");
-x.type=x.type==="password"?"text":"password";
+let x=document.getElementById('pass');
+x.type=x.type==='password'?'text':'password';
 }
 
-document.getElementById("pass").addEventListener("keypress",function(e){
-if(e.key==="Enter") check();
-});
-
 function updateDateTime(){
-const now=new Date();
-document.getElementById("datetime").innerHTML="📅 "+now.toLocaleString();
+document.getElementById('datetime').innerHTML='📅 '+new Date().toLocaleString();
 }
 setInterval(updateDateTime,1000);
 updateDateTime();
 </script>
+
 </body>
 </html>
